@@ -30,4 +30,21 @@ public class Cars {
         return carList.stream().map(Car::getPosition).reduce(0, Integer::max);
     }
 
+    public String getPlayRecord() {
+        StringBuilder sb = new StringBuilder();
+        for(Car car : carList) {
+            sb.append(car.getName()).append(" : ").append(repeatHyphen(car.getPosition())).append("\n");
+        }
+        sb.append("\n");
+
+        return sb.toString();
+    }
+
+    public String repeatHyphen(int count) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < count; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
 }
