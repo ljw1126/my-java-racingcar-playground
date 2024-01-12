@@ -8,32 +8,23 @@ public class Position {
     }
 
     public Position(int position) {
-        checkPosition(position);
-        this.position = position;
-    }
-
-    private void checkPosition(int position) {
         if(position < 0) {
             throw new IllegalArgumentException("position 값은 0 ~ 9 사이만 가능합니다");
         }
+        this.position = position;
     }
 
-    public void move(int position) {
-        if(position < 4) return;
-
+    public Position move() {
         this.position += 1;
+        return this;
     }
 
-    public boolean ratherThan(int maxPosition) {
-        return this.position >= maxPosition;
+    public boolean lessThan(Position maxPosition) {
+        return position < maxPosition.getPosition();
     }
 
     public int getPosition() {
         return position;
-    }
-
-    public boolean isSame(int maxPosition) {
-        return position == maxPosition;
     }
 
     @Override
@@ -48,4 +39,5 @@ public class Position {
     public int hashCode() {
         return Objects.hash(position);
     }
+
 }

@@ -14,11 +14,21 @@ public class Car {
     }
 
     public void move(int position) {
-        this.position.move(position);
+        if(position > 4) {
+            this.position = this.position.move();
+        }
     }
 
-    public boolean isSamePosition(int maxPosition) {
-        return this.position.isSame(maxPosition);
+    public boolean isWinner(Position maxPosition) {
+        return position.equals(maxPosition);
+    }
+
+    public Position maxPosition(Position maxPosition) {
+        if(this.position.lessThan(maxPosition)) {
+            return maxPosition;
+        }
+
+        return this.position;
     }
 
     public int getPosition() {
@@ -41,4 +51,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
+
 }

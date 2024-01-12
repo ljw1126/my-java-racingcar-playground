@@ -31,7 +31,7 @@ public class RacingGame {
     }
 
     public String result() {
-        String winners = cars.getWinner().stream().map(Car::getName).collect(Collectors.joining(", "));
+        String winners = cars.findWinners().stream().map(Car::getName).collect(Collectors.joining(", "));
         sb.append(winners).append("가 우승했습니다");
         return sb.toString();
     }

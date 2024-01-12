@@ -19,15 +19,30 @@ public class Cars {
         return new Random().nextInt(10);
     }
 
-    public List<Car> getWinner() {
-        int maxPosition = getMaxPosition();
+    public List<Car> findWinners() {
+        return findWinners(getMaxPosition());
+    }
+
+    // 클래스 메서드 - 테스트 하기는 좋음
+    public static List<Car> findWinners(List<Car> carList, Position maxPosition) {
         return carList.stream()
-                .filter(car -> car.isSamePosition(maxPosition))
+                .filter(car -> car.isWinner(maxPosition))
                 .collect(Collectors.toList());
     }
 
-    public int getMaxPosition() {
-        return carList.stream().map(Car::getPosition).reduce(0, Integer::max);
+    // 인스턴스 메서드 - 생성자에 의존하여 테스트 코드가 늘지만 문맥상 맞음
+    private List<Car> findWinners(Position maxPosition) {
+        return carList.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .collect(Collectors.toList());
+    }
+
+    public Position getMaxPosition() {
+        Position maxPosition = new Position();
+        for(Car car : carList) {
+            maxPosition = car.maxPosition(maxPosition);
+        }
+        return maxPosition;
     }
 
     public String getPlayRecord() {

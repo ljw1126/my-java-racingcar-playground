@@ -18,7 +18,7 @@ class CarsTest {
                 new Car("cccc", 2)
         ));
         // then
-        assertThat(cars.getMaxPosition()).isEqualTo(2);
+        assertThat(cars.getMaxPosition()).isEqualTo(new Position(2));
     }
 
     @DisplayName("")
@@ -35,6 +35,6 @@ class CarsTest {
         List<Car> winners = Arrays.asList(new Car("aaaa", 2), new Car("cccc", 2));
 
         // then
-        assertThat(cars.getWinner()).isEqualTo(winners);
+        assertThat(cars.findWinners()).isEqualTo(winners);
     }
 }
