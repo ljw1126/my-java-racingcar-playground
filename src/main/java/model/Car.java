@@ -1,7 +1,5 @@
 package model;
 
-import utils.RandomNumberGenerator;
-
 import java.util.Objects;
 
 public class Car {
