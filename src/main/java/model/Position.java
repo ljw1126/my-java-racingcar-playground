@@ -5,6 +5,10 @@ import java.util.Objects;
 public class Position {
     private int position;
 
+    public Position() {
+        this(0);
+    }
+
     public Position(int position) {
         if(position < 0) {
             throw new IllegalArgumentException("위치값은 0 이상만 가능합니다.");
@@ -27,5 +31,17 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(position);
+    }
+
+    public boolean greatThan(Position maxPosition) {
+        return this.position > maxPosition.getPosition();
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public boolean isSame(int maxPosition) {
+        return this.position == maxPosition;
     }
 }

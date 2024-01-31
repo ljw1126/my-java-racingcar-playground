@@ -33,6 +33,18 @@ public class Car {
         return position;
     }
 
+    public Position maxPosition(Position maxPosition) {
+        if(this.position.greatThan(maxPosition)) {
+            return this.position;
+        }
+
+        return maxPosition;
+    }
+
+    public boolean isSamePosition(Position maxPosition) {
+        return this.position.equals(maxPosition);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
