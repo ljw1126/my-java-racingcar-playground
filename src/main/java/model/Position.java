@@ -20,6 +20,14 @@ public class Position {
         return new Position(this.position + 1);
     }
 
+    public boolean greatThan(Position maxPosition) {
+        return this.position > maxPosition.getPosition();
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,17 +39,5 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(position);
-    }
-
-    public boolean greatThan(Position maxPosition) {
-        return this.position > maxPosition.getPosition();
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
-    public boolean isSame(int maxPosition) {
-        return this.position == maxPosition;
     }
 }
